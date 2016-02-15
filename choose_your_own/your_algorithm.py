@@ -15,7 +15,13 @@ bumpy_fast = [features_train[ii][1] for ii in range(0, len(features_train)) if l
 grade_slow = [features_train[ii][0] for ii in range(0, len(features_train)) if labels_train[ii]==1]
 bumpy_slow = [features_train[ii][1] for ii in range(0, len(features_train)) if labels_train[ii]==1]
 
-
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.metrics import accuracy_score
+clf = AdaBoostClassifier(n_estimators=50)
+clf.fit(features_train, labels_train)
+print "fitted"
+print accuracy_score(labels_test, clf.predict(features_test))
+prettyPicture(clf, features_test, labels_test)
 #### initial visualization
 plt.xlim(0.0, 1.0)
 plt.ylim(0.0, 1.0)
@@ -28,17 +34,11 @@ plt.show()
 ################################################################################
 
 
-### your code here!  name your classifier object clf if you want the 
+### your code here!  name your classifier object clf if you want the
 ### visualization code (prettyPicture) to show you the decision boundary
-
-
-
-
-
-
-
 
 try:
     prettyPicture(clf, features_test, labels_test)
 except NameError:
+    print "error"
     pass
