@@ -30,17 +30,13 @@ def parseOutText(f):
         ### project part 2: comment out the line below
         # words = text_string
         stemmer = SnowballStemmer("english")
-        print text_string
-        print text_string.split(' ')
-        print [stemmer.stem(x) for x in text_string.split(' ')]
-        words = ' '.join([stemmer.stem(x) for x in text_string.split(' ') if len(x) > 0])
+        # print text_string
+        # print text_string.split()
+        # print [stemmer.stem(x) for x in text_string.split()]
+        words = ' '.join([stemmer.stem(x) for x in text_string.split() if len(x) > 0])
         ### split the text string into individual words, stem each word,
         ### and append the stemmed word to words (make sure there's a single
         ### space between each stemmed word)
-
-
-
-
 
     return words
 
